@@ -1,0 +1,25 @@
+
+{
+  "name": "react-native-speech",
+  "version": "0.0.1",
+  "bugs": {
+    "url": "https://github.com/widuu/react-native-speech/issues"
+  },
+  "description": "baidu tts react native module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/widuu/react-native-speech.git"
+  },
+  "author": "widuu",
+  "license": "Apache 2.0",
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  }
+}
