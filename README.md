@@ -3,4 +3,5 @@
 
 ## Getting started
 
-`$ npm install react-native-speech --save`
+`$ npm install react-native-speech-baidu --save`
+`$ react-native link`
