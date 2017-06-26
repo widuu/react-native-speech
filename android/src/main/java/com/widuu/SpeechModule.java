@@ -3,19 +3,18 @@ package com.widuu;
 import android.os.Environment;
 import android.widget.Toast;
 
-import com.baidu.tts.auth.AuthInfo;
+
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-//import com.facebook.react.bridge.Callback;
-//import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.ReadableMap;
 
 import com.baidu.tts.client.SpeechError;
 import com.baidu.tts.client.SpeechSynthesizer;
 import com.baidu.tts.client.SpeechSynthesizerListener;
 import com.baidu.tts.client.TtsMode;
-import com.facebook.react.bridge.ReadableMap;
+import com.baidu.tts.auth.AuthInfo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,7 +25,6 @@ import java.io.InputStream;
 
 public class SpeechModule extends ReactContextBaseJavaModule implements SpeechSynthesizerListener {
 
-    //private final ReactApplicationContext reactContext;
     private static  String TAG = "SpeechModule";
     private SpeechSynthesizer mSpeechSynthesizer;
     private String dataDirPath;
@@ -40,7 +38,6 @@ public class SpeechModule extends ReactContextBaseJavaModule implements SpeechSy
 
     public SpeechModule(ReactApplicationContext reactContext)  {
         super(reactContext);
-        //this .reactContext = reactContext;
     }
 
     @Override
@@ -65,7 +62,6 @@ public class SpeechModule extends ReactContextBaseJavaModule implements SpeechSy
 
     @ReactMethod
     public void initialTts(ReadableMap params, Promise promise) {
-        //getReactApplicationContext().getResources().getAssets()
         this.mSpeechSynthesizer = SpeechSynthesizer.getInstance();
         this.mSpeechSynthesizer.setContext(getReactApplicationContext());
         this.mSpeechSynthesizer.setSpeechSynthesizerListener(this);
@@ -90,7 +86,6 @@ public class SpeechModule extends ReactContextBaseJavaModule implements SpeechSy
         this.mSpeechSynthesizer.setParam(SpeechSynthesizer.PARAM_SPEAKER, String.valueOf(speaker));
         // 设置Mix模式的合成策略
         this.mSpeechSynthesizer.setParam(SpeechSynthesizer.PARAM_MIX_MODE, SpeechSynthesizer.MIX_MODE_DEFAULT);
-
 
         // 初始化tts
         mSpeechSynthesizer.initTts(TtsMode.MIX);
